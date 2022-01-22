@@ -1,0 +1,201 @@
+### Summary Missing Value/Outlier/Feature Engineering Treatments
+
+* All Missing Values treated with with Median Imputation, Rows that cannot be treated has been dropped. 
+* All Outliers are treated. Current data has no outliers, All Outliers Exceeds 4 IQR has been dropped.
+* Age has been Convered to Age Bins to consolidate similar age group customers 
+
+
+
+#### ProdTaken
+* ProdTaken is dependent target variable.
+* imbalance in data spread, we have 81% customers did not took product and 19% customers took. 
+* we have to adjust this imbalance when buidling model to give more weightage to customers took product.
+* Target Variable Product Taken does not have any high relation with other features. High we can see is passport which is also not significant. We see a negative relation with montly income, Expected low income family might not take tour packages. 
+
+#### OwnCar
+* Majority customers own car - 62%, only 38% does not have a car.
+* there is no clear relation with owning a car and took product. Both has share of 20% product ProdTaken
+
+#### Passport
+
+* only 29% has passport, Others dont have.
+* But we see a trend customers has passport like to take tour packages. 37% customers has passport took product. Only 15% customers does not have passport took product.
+* Company can focus more on customers with passport to sell their package.
+
+#### Age - Convered to AgeRange
+
+* Majority customers falls within 30 to 39 range.
+* Age 19 to 59 has 99% of customers 
+* 19 to 29 group has taken 30% product compared to other age group, Company should target more on this age group.
+* all other age group approx 12% to 18% taken product.
+
+
+#### Number Of Trips
+* more than 90% of customers took less than 5 trips a year. Company can target customers took less trips that year to sell their tour package.  
+* no clear indication of number of trips taken with prod taken, most of the prod taken are customer took 2 to 4 trips 
+
+#### Monthly Income
+* no clear indication of montly income with product sold. Customer with income 20K to 25K amd upto 33K are most of the customers bought product. Company should target with this income range.
+
+
+#### Number Of Followups
+* More followup sells more product. 3 to 5 followup sells most of the product.
+* Company should followup atlest 3 to 5 times every customer to increase product sales 
+
+#### Duration Of Pitch 
+* customers like package with 10 to 24 days, compared to other durations. Company should promote these packages more.
+
+#### Type of Contact
+
+* 71% are self enquiry, Only 29% company invited.
+* Company should focus more on this area to reach more customers.
+* Company Invite shows little higher % sale in product taken compared to self enuiry 
+
+#### Occupation
+
+* 90% of customers are Salaried or Small Business, They Each contribute 18% product taken
+* Large Business customers are taking 25% tour package compared to 18% Salaried and Small Business
+
+
+#### Gender
+
+* 60% customers are male and 40% customers are female.
+* we do not see any difference in product taken, Both male and female has taken approx 20% product. 
+
+#### Marital Status
+
+* 49% customers are married. 19% are single, 14% are unmarried and 19.4% are divorced 
+* Single and Unmarried has taken product more compared to married or divorced. 37% single taken product, 22% unmarried has taken product. 16% both divorced and married has taken product
+
+#### Designation
+
+* 37.7% customers are executive, 35.3% customers are manager, 15.3% customers are senior managers, 7% are assistant VP, 4.7% are VP
+* manager, senior manager and executive are the ones took more product compared to AVP and VP 
+* exeuctive taken 30% product, Followed by managers and senior managers 
+* Company should target these desgination more to sell thier product.
+
+
+#### Product Pitched
+
+* Most of the customers are intrested in basic and deluxe  basic with 37.7% and deluxe with 35.3%.
+* Company can target customer based on their income level with tour pitch packages
+* King & Super deluxe can be reached to VP & AVP level customers
+* Customers are intrested in basic, standard and deluxe package. those are top selling. 
+
+
+#### City Tier
+
+* 65% customers are from Tier 1 City, 31% are tier 3 and 4% customers from Tier 2
+* No Clear relation with product sold for city tier
+
+#### Number Of Person Visiting
+
+* Most common are 3 person visting tour 49.2%, 2nd common are 29% are 2 person visiting
+* Company can reach customers with small families to sell thier product.
+* 2 to 3 visitors bought more product. 
+
+#### Preferred Property Star
+
+* most common is 3 star hotels followed by 19% 4 star and 20% 5 star
+* Packages with 3 to 5 stars sold more. Company should try to include 4 and 5 star more to improve sales
+
+#### Number Of Children Visiting
+
+* 1 child visiting is 43%,  2 child visiting is 27%
+* Company can reach customers with small families to sell thier product.
+* No Clear relation with product sold for number of children visit
+
+#### Pitch Satisfaction Score
+
+* most of the customers given 3 star 30%
+* approx 40% customers given 4 and 5 stars 
+* target the tour package has 3 stars and more and sell those to customers, they likey to buy those products
+
+
+#### Monthly Income vs  NumberOfPersonVisiting with ProdTaken
+
+* 2 to 4 people visting with income rnage 20K to 30K took product more than other income range and persons visiting. Company should target this type of customer to improve sales.
+
+#### Monthly Income vs  DurationOfPitch with ProdTaken
+
+* Income with 20k to 30K with duration 12 to 24 days are most sold, Company should target this type of customer to improve sales.
+
+#### Monthly Income vs  NumberOfTrips with ProdTaken
+
+* 2 to 4 trips with income range 20K to 35K took more product compared to others , Company should target this type of customer to improve sales.
+
+#### Monthly Income vs  NumberOfFollowups with ProdTaken
+* we see 3 to 6 followup sold more product comapred to less followups, Company should target this type of customer to improve sales.
+
+#### Monthly Income vs  PreferredPropertyStar with ProdTaken
+
+* customers like 3 to 5 stars no clear relation
+
+
+
+
+
+
+rf_estimator
+
+bagging_estimator_tuned
+rf_tuned
+
+
+
+xgb_tuned = XGBClassifier(
+    learning_rate=0.01,
+    n_estimators=100,
+    max_depth=4,
+    min_child_weight=6,
+    gamma=0,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    reg_alpha=0.005,
+    objective="binary:logistic",
+    nthread=4,
+    scale_pos_weight=2,
+    seed=27,
+    eval_metric="logloss",
+)
+
+# Grid of parameters to choose from
+parameters = {
+    # "n_estimators": [500],
+    # "scale_pos_weight": [4, 5, 6, 7, 10],
+    # "subsample": [0.4, 0.5, 0.6],
+    # "learning_rate": np.arange(0.1, 1.1, 0.1),
+    # "gamma": [0, 1, 3, 5, 7, 10],
+    # "colsample_bytree": [0.5, 0.7, 0.9, 1],
+    # "colsample_bylevel": [0.5, 0.7, 0.9, 1],
+}
+
+
+good recall but bad f1 
+
+xgb_tuned = XGBClassifier(
+    learning_rate=0.01,
+    n_estimators=100,
+    max_depth=4,
+    min_child_weight=6,
+    gamma=0,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    reg_alpha=0.005,
+    objective="binary:logistic",
+    nthread=4,
+    scale_pos_weight=2,
+    seed=27,
+    eval_metric="logloss",
+)
+
+# Grid of parameters to choose from
+parameters = {
+    "n_estimators": [500],
+    "scale_pos_weight": [4, 5, 6, 7, 10],
+    # "subsample": [0.4, 0.5, 0.6],
+    # "learning_rate": np.arange(0.1, 0.3, 0.1),
+    # "gamma": [0, 1, 3, 5, 7, 10],
+    # "colsample_bytree": [0.5, 0.7, 0.9, 1],
+    # "colsample_bylevel": [0.5, 0.7, 0.9, 1],
+}

@@ -1,0 +1,19 @@
+personal loan data we had only 10%, so the data is very highly biased toward no loans 
+
+HIGH features 
+
+`Income`  - income has positive relation with `CCAvg` and only after certain level of income `Personal_Loan`
+ `Family` - Family of 3 or 4 offered more loans
+  `Education`  - Level 2 and 3 offered more loans
+ExperienceRange
+AgeRange
+
+Should Avoid 
+
+`Mortgage`  - Mortgage has relation with  
+`Securities_Account`
+`CreditCard`  - 
+ExperienceRange
+AgeRange
+Avoid - Person has external credit cards, ExperienceRange_>=40 people about to retire, low income counties, has securites Securities_Account
+Avoid Age more than 50

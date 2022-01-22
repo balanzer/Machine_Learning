@@ -1,0 +1,44 @@
+ 0   Age          418 non-null    int64   
+ 1   Gender       418 non-null    category
+ 2   Engineer     418 non-null    int64   
+ 3   MBA          418 non-null    int64   
+ 4   Work Exp     418 non-null    int64   
+ 5   Salary       418 non-null    float64 
+ 6   Distance     418 non-null    float64 
+ 7   license      418 non-null    int64   
+ 8   Opt_service  418 non-null    int64  
+
+
+
+ histogram_boxplot(data,'YearsAtCompany')
+
+
+ labeled_barplot(data, "BusinessTravel", perc=True)
+
+
+
+#Fitting the model
+d_tree = DecisionTreeClassifier(random_state=1)
+d_tree.fit(X_train,y_train)
+
+ #Fitting the model
+bagging_classifier = BaggingClassifier(random_state=1)
+bagging_classifier.fit(X_train,y_train)
+
+#Fitting the model
+rf_estimator = RandomForestClassifier(random_state=1)
+rf_estimator.fit(X_train,y_train)
+
+
+#Fitting the model
+xgb_classifier = XGBClassifier(random_state=1, eval_metric='logloss')
+xgb_classifier.fit(X_train,y_train)
+
+
+#Fitting the model
+gb_classifier = GradientBoostingClassifier(random_state=1)
+gb_classifier.fit(X_train,y_train)
+
+#Fitting the model
+ab_classifier = AdaBoostClassifier(random_state=1)
+ab_classifier.fit(X_train,y_train)

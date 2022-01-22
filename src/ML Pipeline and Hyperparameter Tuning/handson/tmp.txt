@@ -1,0 +1,14 @@
+ 0   Gender                           889 non-null    category
+ 1   Chain_smoker                     889 non-null    int64   
+ 2   Consumes_other_tobacco_products  889 non-null    int64   
+ 3   HighBP                           889 non-null    int64   
+ 4   Obese                            889 non-null    int64   
+ 5   Diabetes                         889 non-null    int64   
+ 6   Metabolic_syndrome               889 non-null    int64   
+ 7   Use_of_stimulant_drugs           889 non-null    int64   
+ 8   Family_history                   889 non-null    int64   
+ 9   History_of_preeclampsia          889 non-null    int64   
+ 10  CABG_history                     889 non-null    int64   
+ 11  Respiratory_illness              889 non-null    int64   
+ 12  UnderRisk                        889 non-null    int64   
+

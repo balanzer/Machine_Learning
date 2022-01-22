@@ -1,0 +1,245 @@
+
+Data Scores 
+
+Random Forest Classifier
+
+F1   - 0.6254476
+{warm_start=True, n_estimators=300, min_samples_split=7, min_samples_leaf=2, min_impurity_decrease=0.001, max_features=auto, max_depth=None, criterion=entropy, class_weight=balanced_subsample, bootstrap=False}
+
+
+precision  - 0.7792302
+
+{warm_start=True, n_estimators=200, min_samples_split=2, min_samples_leaf=4, min_impurity_decrease=0.001, max_features=auto, max_depth=None, criterion=entropy, class_weight={0=0.24, 1=0.76}, bootstrap=False}
+
+AdaBoost Classifier
+
+precision/accuracy  - 0.7939799
+best params ={n_estimators=100, learning_rate=0.001, base_estimator=DecisionTreeClassifier(max_depth=3, random_state=32)}
+
+f1 - 0.665665
+best params ={n_estimators=400, learning_rate=0.0001, base_estimator=DecisionTreeClassifier(class_weight={0=0.24, 1=0.76}, max_depth=3,random_state=32)}
+
+Gradient Boosting Classifier
+
+roc_auc  - 0.8409336
+{subsample=0.9, n_estimators=400, min_impurity_decrease=0.0001, max_features=0.9, max_depth=7, loss=exponential, learning_rate=0.1}
+
+
+f1/recall  - 0.8293391
+{subsample=0.7, n_estimators=300, min_impurity_decrease=0.001, max_features=0.7, max_depth=3, loss=deviance, learning_rate=0.3}
+
+All data - best performance 
+
+RF - 0.7215837
+
+GB - 0.8711341
+
+RF accuracy - 80.7
+{random_state= 32, n_jobs= -1, n_estimators= 100, min_impurity_decrease= 0.0001, max_features= auto, max_depth= None, criterion= entropy}
+ 
+rf - all data with smote  - 0.7735206
+gb - all data with smote - 0.8750908
+rf - replaced nan with 0 - 0.7997396
+gb - replaced nan with 0 - 0.8777703
+rf - replaced nan with 0 with smote - 0.8018431  - 
+# score : 'f1' best score : 0.5403271229982763, best params : {'random_state': 32, 'n_jobs': -1, 'n_estimators': 400, 'min_impurity_decrease': 0.001, 'max_features': None, 'max_depth': None, 'criterion': 'gini', 'class_weight': 'balanced'}
+gb - replaced nan with 0 with smote - 0.8770941 - {'subsample': 1, 'n_estimators': 400, 'min_impurity_decrease': 0.0001, 'max_features': None, 'max_depth': 5, 'loss': 'exponential', 'learning_rate': 0.2}
+
+gb - replaced nan with 0 - 0.8813262
+
+replaced nan with 0, removed category columns, loan sub grade, state and home_ownership
+rf - 0.8079032
+gb - 0.8697568
+
+Bin Bukcets interest_rate, delinq_2yrs, public records 0 if 0, else 1
+rf - 0.8082789
+gb - 0.872862
+
+try above combination with not removing columns loan subgrade,state and home ownership
+rf - 0.7843137
+gb - 0.8794481
+
+
+replaced nan with 0 and min_impurity_decrease 0.001, 
+rf - 0.7698645
+gb - 0.8782461
+
+replaced nan with 0 & SMOTE and min_impurity_decrease 0.01
+rf - 0.7079859
+gb - 0.8776951
+
+replaced nan with 0 & SMOTE and min_impurity_decrease 0.0001
+rf - 0.7890467
+knn n=10 - 0.6159317
+gb - 0.8808504
+
+replaced nan with 0 & SMOTE and min_impurity_decrease 0.001
+
+rf - 0.7444469
+knn n=3 - 0.6174592
+gb - 0.8791476
+
+Removed SMote and min_impurity_decrease 0.001
+rf - 0.7841885
+gb - 0.8810007
+
+600 n_estimators
+rf - 0.7837127
+gb - 0.8819272
+
+750 n_estimators with smote
+rf - 0.7482283
+gb - 0.8822528
+
+750 n_estimators - Removed Smote
+rf - 0.7835374
+gb - 0.8284877
+
+100 n_estimators - Removed Smote
+rf - 0.7835875
+gb - 0.8282623
+
+removed state - shows improvement 
+rf - 0.8027196
+gb - 0.8295395
+
+removed loan_subgrade - less than previous
+rf - 0.8097313
+gb - 0.828062
+
+delinq_2yrs,public_records 0 if 0, else 1 if more than 0 , less than previous
+
+rf - 0.807753
+gb - 0.8269351 
+
+binned delinq_2yrs,public_records , less than previous
+
+rf - 0.8075527
+gb - 0.8264343 
+
+Removing Bin delinq_2yrs,public_records, Added intrest bin 
+
+rf - 0.8097814
+gb - 0.8210252
+
+Removing all bin - good improvements without bin
+
+rf - 0.8061002
+gb - 0.8649738
+
+50 n_estimators
+rf - 0.8124859
+gb - 0.8581123
+pca - 0.2490922
+
+removing loan_grade
+rf - 0.8076779
+gb - 0.8500739
+
+adding back loan_grade
+rf - 0.8066011
+gb - 0.8583628
+
+Removed some outliers
+rf -  0.8140886
+gb -  0.8561591
+
+Removed annual income , total acc
+rf - 0.8066261
+gb - 0.8599404
+
+No removing outliers 
+rf - 0.8066762
+gb - 0.8581374
+
+
+Removed interest_rate, total_revolving_limit - bad performance 
+rf - 0.7842887
+gb - 0.8278366
+
+Baseline - with states and loan subgrade removed
+0.8108331
+0.8590138
+
+Removing interest_rate - bad performance
+0.8074024
+0.8275361
+
+Removing home_ownership - little less than baseline
+0.8073022
+0.85671
+
+Removing loan_grade - bad performance
+0.8068765
+0.851326
+
+No column removals - baseline 
+0.7640548
+0.8697568
+
+No column removals - baseline  - 850 estimators
+0.7841134
+0    97.543385
+1     2.456615
+0.8811259
+0    80.905517
+1    19.094483
+
+No column removals - baseline  - 850 estimators - with smote 
+0.7410663
+0    73.235169
+1    26.764831
+0.8818771
+0    80.129216
+1    19.870784
+
+
+performance check 
+all 0s - 0.7598477
+all 1s - 0.2401523
+
+Removing smote and changing to 50 estimators
+GB - 0.8684547
+0    83.314552
+1    16.685448
+
+
+Updated parameters
+
+0.8388551 -best rf score 
+0    86.379686
+1    13.620314
+
+0.8667518
+0    81.346255
+1    18.653745
+
+12/sunday - morning 
+0.8226279
+0    84.681842
+1    15.318158
+0.8666516
+0    81.115869
+1    18.884131
+
+
+finding feature importance
+
+remove state and loan subgrade - performance dropped
+0.8566349
+0    82.41805
+1    17.58195
+
+
+Removing outliers - 
+total_current_balance,revolving_balance,annual_income,interest_receive
+ - no big improvement
+0.8504245
+0    81.842085
+1    18.157915
+
+min_impurity_decrease=0.2 - shows better improvement
+poor score 
+0.8397065
+
+After changes 

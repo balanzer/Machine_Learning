@@ -1,0 +1,52 @@
+AccID: An unique id for the account
+CategoryID: An unique id for the category of the society
+Category: Category of society 
+Value: The market value of the particular property (account)
+PropertySize: The size of the property in square meters
+BillingAmt: The total amount payable by the resident to the society management
+AverageBillingAmt: The average amount payable by the resident to the society management
+CollectedAmt: The total amount collected from the resident 
+AverageCollectedAmt: The average amount collected from the resident 
+DebtAmt: The Total Debt that is at 90 days or more
+WriteOffAmt: The Total amount of debt that has been written off
+CollectionRatio: The ratio between the Total amount collected and Total Billing (ie. CollectedAmt/ BillingAmt)
+DebtBillingRatio: The ratio between the Total Debt and Total Billing (ie. (Total Debt + Total Write Off)/Total Billing)
+TotalElectricityBill: The total amount billed for electricity. This field was put in place because it is used as a means to recover debt - ie. If an amount is outstanding for any service the management has the right to cut a consumer's electricity connection.
+HasID: The resident has an ID number. 
+Label: 1 = Is considered to be a Bad Debt, 0 = Not considered to be a Bad Debt
+
+
+CollectionRatio
+DebtBillingRatio
+TotalElectricityBill
+CollectedAmt
+
+
+
+
+
+ 0   Category                  100476 non-null  category
+ 1   HasID                     100476 non-null  int64   
+ 2   Label                     100476 non-null  int64   
+
+
+ 3   Value_Log                 100476 non-null  float64 
+ 4   PropertySize_Log          100476 non-null  float64 
+ 5   BillingAmt_Log            100476 non-null  float64 
+ 6   AverageBillingAmt_Log     100476 non-null  float64 
+ 7   CollectedAmt_Log          100476 non-null  float64 
+ 8   AverageCollectedAmt_Log   100476 non-null  float64 
+ 9   DebtAmt_Log               100476 non-null  float64 
+ 10  WriteOffAmt_Log           100476 non-null  float64 
+ 11  TotalElectricityBill_Log  100476 non-null  float64 
+
+
+
+
+ modelDM1
+ rf_wt_recall
+ rf_estimator
+ rf_estimator2
+ rf_estimator3
+ rf_estimator4
+ dtree_estimator

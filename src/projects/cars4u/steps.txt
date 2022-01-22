@@ -1,0 +1,204 @@
+Review Files 
+
+
+LM 
+LinearRegression.ipynb
+03-Linear Regression Project - Solutions.ipynb
+Ecommerce_customer_hands_on.ipynb
+SLR_W1_PracticeExercise_Solution.ipynb
+Understand_Performance_errors.ipynb
+SLR_MLS1_AnimeRatingPrediction (1).ipynb
+
+
+Pre Processing
+
+FIFA_2019_data_preprocessing_v2.ipynb
+SLR_W2_AdditionalCaseStudy_LaptopPrices.ipynb
+
+
+
+For observations 
+SLR_MLS1_AnimeRatingPrediction
+FIFA_2019_data_preprocessing_v2.ipynb
+SLR_W2_AdditionalCaseStudy_LaptopPrices.ipynb
+
+Objective
+come up with a pricing model that can effectively predict the price of used cars and can help the business in devising profitable strategies using differential pricing. 
+To explore and visualize the dataset, build a linear regression model to predict the prices of used cars, and generate a set of insights and recommendations that will help the business.
+
+Data 
+
+S.No.: Serial number
+Name: Name of the car which includes brand name and model name
+Location: Location in which the car is being sold or is available for purchase (cities)
+Year: Manufacturing year of the car
+Kilometers_driven: The total kilometers driven in the car by the previous owner(s) in km
+Fuel_Type: The type of fuel used by the car (Petrol, Diesel, Electric, CNG, LPG)
+Transmission: The type of transmission used by the car (Automatic/Manual)
+Owner: Type of ownership
+Mileage: The standard mileage offered by the car company in kmpl or km/kg
+Engine: The displacement volume of the engine in CC
+Power: The maximum power of the engine in bhp
+Seats: The number of seats in the car
+New_Price: The price of a new car of the same model in INR Lakhs (1 Lakh INR = 100,000 INR)
+Price: The price of the used car in INR Lakhs
+
+
+Scoring
+
+6 points 
+Define the problem and perform an Exploratory Data Analysis
+- Problem definition, questions to be answered - Data background and contents - Univariate analysis - Bivariate analysis
+
+3 points 
+Illustrate the insights based on EDA
+Key meaningful observations on the relationship between variables
+
+10 points
+Data pre-processing
+Prepare the data for analysis and modeling - Missing value Treatment - Outlier Treatment - Feature Engineering
+
+8 points
+Model building - Linear Regression
+- Build the model and comment on the model statistics - Display model coefficients with column names
+
+4 points
+Model performance evaluation
+Evaluate the model on different performance metrics
+
+5 points 
+
+Actionable Insights & Recommendations
+Conclude with the key takeaways for the business
+
+4 points
+Notebook - Overall Quality
+- Structure and flow - Well-commented code
+
+
+Steps 
+
+Understand the Data
+
+import
+  download packages
+  set styles
+  np.random.seed(1)
+
+Import the data
+
+  Load and review data
+
+  create a function
+    Check Shape
+    Check Info
+    cData.describe()
+    print data.columns
+    check duplicated values 
+    Check total null values by fields 
+    Check top 10 unique values of category fields 
+    Load sample data 
+
+Univariate analysis - Bivariate analysis
+  jointplot num vs num
+  lmplot  num vs num
+
+  record observations 
+EDA 
+  heat map
+    understand price and other features corr 
+    understand other featues corr
+ pair plot - BiVariate Plots
+
+
+data preprocessing
+  Convert Numbers Categoty to actual number columns (income_to_num)
+    convert price 
+      can price be normalized using log or min max?
+    check all columns for any possible conversions 
+    any column conver to date time?
+  Feature Engineering
+    can any coulumns combined?
+    Can any columns split?
+    can any new feature columns created like year?
+    can any columns running number can be bucket into bins? like height or age 
+  Drop unwanted columns 
+
+  Create Dummy variables
+  Fix missing values 
+  Fix category values which ocurrless google and add appropiate real values
+  Outlier Treatment
+
+
+
+
+
+
+LM Model 
+  Load Data X and y
+  Split Data 
+    print train and test data stats
+  Fit LM
+  build a function
+    cpture coefficients and intercept
+  build a function
+    check r2 score, erros (MAE, MSE and RMSE) - on Training and Tesst 
+  scatter plot on predictions vs y training or test 
+  histogram on Residuals 
+  Automate the equation of the fit
+    print formula
+  Alternate Model - PolynomialFeatures
+  Forward Feature Selection using *SequentialFeatureSelector*
+
+Conclusion
+
+
+
+
+
+What all independent variables effect the pricing of used cars?
+Does name of a car have any effect on pricing of car.?
+ Does kilometers_Driven,Year of manufacturing have negative correlation with price of the car?
+- Does Mileage ,Engine and Power have any effect on the pricing of the car?
+- How does number of seat ,Fuel type effect the pricing.?
+
+
+cars[cars.Mileage.isnull()==True]
+
+cars.query("Power == '0.0'")['Power'].count()
+
+cars.loc[cars["Mileage"]=='0.0','Mileage']=np.nan
+
+Power has some values as "nullbhp" .Mileage also has some observations as 0. For fuel type and CNG and LPG mileage is measured in km/kg where as for other type it is measured in kmpl. Since those units are in km for both of them no need of conversion . Dropping units from mileages,Engine and Power.
+
+
+age of car?
+
+high and low range?
+
+
+
+
+### Observation on Kilometers_Driven 
+
+* it has one extreme outlier showing 6.5 million - we should fix this row 
+
+* 75% cars driven around 70K Kms 
+
+* car is BMW X5 Xdrive 30D M Sport	4, 4 yrs old so lets fix the value has 65K Kms
+
+
+df[df["Kilometers_Driven"] >= 6500000].index
+
+df["Kilometers_Driven"][df[df["Kilometers_Driven"] >= 6500000].index] = 65000
+
+
+Year	7253.000	2013.365	3.254	1996.000	2011.000	2014.000	2016.000	2019.000
+Kilometers_Driven	7253.000	58699.063	84427.721	171.000	34000.000	53416.000	73000.000	6500000.000
+Mileage	7251.000	18.142	4.562	0.000	15.170	18.160	21.100	33.540
+Engine	7207.000	1616.573	595.285	72.000	1198.000	1493.000	1968.000	5998.000
+Power	7078.000	112.765	53.494	34.200	75.000	94.000	138.100	616.000
+Seats	7200.000	5.280	0.812	0.000	5.000	5.000	5.000	10.000
+New_Price	1006.000	22.780	27.759	3.910	7.885	11.570	26.043	375.000
+Price	6019.000	9.479	11.188	0.440	3.500	5.640	9.950	160.000
+Age_Of_Car

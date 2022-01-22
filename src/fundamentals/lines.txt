@@ -1,0 +1,3 @@
+01 line 1 
+02 hello world
+03 testing python file io

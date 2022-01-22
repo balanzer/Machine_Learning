@@ -1,0 +1,19 @@
+#### Model Predicts customer attrition 95% and more. Bank should focus on customer that shows as possible attrition by contacting them understand their concerns and provide a workaround. This would help reating that customer account.
+
+Foucs on data collection to avoid missing data & collect correct data on Income_Category, Education Category & Marital_Status this will help to predict customer actions accuractly 
+
+16% customers accounts ends in attrition as per previous data. Decreseing attrition will eventually ends in more actuve accounts & revenue improvement oppurtnities for bank
+
+Bank should contact customers if they see inactive for 3-4 months to avoid future attrition
+
+Customers with more relation on bank like different cards might not use all cards, Bank should contact customers and encourge them to use all card or provide offers on the cards they dont use. This will help any future attrition on unsued accounts 
+
+93% customers using Blue card category, As per income category  more customers are eligible for High card tier. Bank should promote those card types for eligible customers.
+
+Less transactions on given Quater, Bank should reach those customers and encourge them to use cards 
+
+Customers contacts and still show inactive or less transactions bank should provide them some offers to encourge them to use cards 
+
+Total Transaction Amount/Credit Limit/Total_Revolving_Balance should be watched and if customers reaching their limit see if customers eligible for increase credit limit, This would allow customers actively use their accounts
+
+Watch transaction counts/transaction amount of customer, If you see less tranactions compared to previous Quater then bank should reach customer and check their status
