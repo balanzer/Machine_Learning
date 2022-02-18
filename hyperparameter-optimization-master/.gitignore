@@ -10,3 +10,6 @@
 
 # folders
 
+# larget data sets
+minst.csv
+minst_test.csv
